@@ -7,8 +7,11 @@ import android.widget.Toast;
 
 import com.example.estacionvl_tc_014.databinding.databinding.ActivityMainBinding;
 import com.example.estacionvl_tc_014.databinding.models.Libro;
+import com.example.estacionvl_tc_014.databinding.util.C;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Libro libro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +21,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.root);
 
-        Libro libro = new Libro();
-        libro.setNombre("Inferno");
-        libro.setAutor("Dan Brown");
-        libro.setDescripcion("Inferno es una novela de misterio y suspense del escritor estadounidense Dan Brown, basada en la simbología oculta en la Divina Comedia, obra clásica de Dante Alighieri, así como en los problemas de la superpoblación mundial. Se trata de la sexta novela del escritor, la cuarta con Robert Langdon como protagonista tras Ángeles y demonios, El código Da Vinci y El símbolo perdido. Fue publicada por la editorial Doubleday el 14 mayo de 2013");
+        int pos  = getIntent().getIntExtra("pos",0);
 
-        libro.setPortada("http://www.revista609.com/wp-content/uploads/2013/06/inferno-di-dan-brown.jpg");
+        libro = C.data.get(pos);
 
         binding.setLibro(libro);
         binding.btn.setOnClickListener(this);
@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(this, "Libro comprado",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Libro editado",Toast.LENGTH_SHORT).show();
+
+        libro.setAutor("Dario Chamorro");
+
     }
 }

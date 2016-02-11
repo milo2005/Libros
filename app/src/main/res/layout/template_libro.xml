@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="l"
+            type="com.example.estacionvl_tc_014.databinding.models.Libro"
+            />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:imgUrl="@{l.portada}"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/img"
+            android:padding="@dimen/small"
+            android:text="@{l.nombre}"
+            />
+
+        <TextView
+            style="@style/Base.TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/img"
+            android:layout_below="@id/title"
+            android:padding="@dimen/small"
+            android:textColor="@color/colorAccent"
+            android:text="@{l.autor}"
+            />
+
+    </RelativeLayout>
+
+
+</layout>

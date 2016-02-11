@@ -68,7 +68,7 @@
             android:id="@+id/btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/buy_book"
+            android:text="@string/edit_book"
             />
 
         <!--android:visibility="@{(libro.descripcion == null)?V.GONE:V.VISIBLE}"-->
