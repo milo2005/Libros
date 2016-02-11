@@ -2,8 +2,11 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     >
     <data>
+
+        <import type="android.view.View" alias="V"/>
         <variable
             name="libro"
             type="com.example.estacionvl_tc_014.databinding.models.Libro"
@@ -22,6 +25,7 @@
             android:scaleType="centerCrop"
             android:background="#444444"
             android:layout_marginBottom="@dimen/medium"
+            app:imgUrl="@{libro.portada}"
             />
 
         <TextView
@@ -40,7 +44,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:layout_marginBottom="@dimen/medium"
-            android:text="@{libro.autor}"
+            android:text="@{libro.autor ?? @string/no_autor}"
             tools:text="autor"
             android:layout_marginLeft="@dimen/small"
             android:layout_marginRight="@dimen/small"
@@ -49,13 +53,24 @@
         <TextView
             style="@style/Base.TextAppearance.AppCompat.Body1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:text="@{libro.descripcion}"
             tools:text="descripcion del libro"
             android:layout_marginLeft="@dimen/small"
             android:layout_marginRight="@dimen/small"
+
+
             />
 
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_book"
+            />
+
+        <!--android:visibility="@{(libro.descripcion == null)?V.GONE:V.VISIBLE}"-->
     </LinearLayout>
 
 </layout>
