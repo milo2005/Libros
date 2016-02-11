@@ -36,6 +36,7 @@
             tools:text="Nombre Libro"
             android:layout_marginLeft="@dimen/small"
             android:layout_marginRight="@dimen/small"
+            app:fontTxt='@{"dancing"}'
             />
 
         <TextView
